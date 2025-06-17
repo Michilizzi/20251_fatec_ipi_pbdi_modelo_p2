@@ -80,9 +80,43 @@ def normalizar_features(features_treinamento, features_teste):
   return features_treinamento_scaled, features_teste_scaled
 
 #REQ 8
-def vai():
-  #chame as suas funções aqui
-  #exiba as quatro bases aqui
-     pass
+def vai():  
+  # le a base
+  base_de_dados = ler_base()
+  
+  # divide features e classes
+  features, classe = dividir_em_features_e_classe(base_de_dados)
+  
+  # lida com valores faltantes
+  features_tratadas = lidar_com_valores_faltantes(features)
+  
+  # codifica as variaveis
+  features_codificadas = codificar_categoricas(features_tratadas)
+  
+  # obtem bases de treino e teste
+  x_train, x_test, y_train, y_test = obter_bases_de_treinamento_e_teste(features_codificadas, classe)
+  
+  # normaliza base
+  x_train_final, x_test_final = normalizar_features(x_train, x_test)
+  
+
+  ###### exibe as 4 bases
+  print("="*30)
+  print("RESULTADOS DO PRÉ-PROCESSAMENTO")
+  print("="*30)
+  
+  print(f"\nShape de X_train (features de treino normalizadas): {x_train_final.shape}")
+  print(x_train_final)
+  
+  print(f"\nShape de X_test (features de teste normalizadas): {x_test_final.shape}")
+  print(x_test_final)
+
+  print(f"\nShape de y_train (classe de treino): {y_train.shape}")
+  print(y_train)
+
+  print(f"\nShape de y_test (classe de teste): {y_test.shape}")
+  print(y_test)
+  print("\nPré-processamento concluído.")
+  print("="*30)
 
 vai()
