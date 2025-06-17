@@ -10,7 +10,6 @@ from sklearn.compose import ColumnTransformer
 #essa função deve devolver a base de dados
 def ler_base():
   dataset = pd.read_csv(r'dados.csv')
-  pass
 
   #REQ 3
 #essa função recebe a base lida anteriormente
