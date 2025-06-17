@@ -12,10 +12,14 @@ def ler_base():
   dataset = pd.read_csv(r'dados.csv')
   pass
 
-#REQ 3
+  #REQ 3
 #essa função recebe a base lida anteriormente
 #ela deve devolver uma tupla contendo as features e a classe
 def dividir_em_features_e_classe(base):
+  X = base.iloc[:, :-1]
+  y = base.iloc[:, -1]
+  return X, y
+  print(e)
   pass
 
 #REQ 4
