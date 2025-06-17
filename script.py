@@ -59,7 +59,12 @@ def codificar_categoricas(features):
 # features de treinamento, features de teste, classe de treinamento, classe de teste
 # a base de treinamento deve ter 75% das instâncias
 def obter_bases_de_treinamento_e_teste(features, classe):
-  pass
+
+  y_array = classe.values
+  
+  x_train, x_test, y_train, y_test = train_test_split(
+      features, y_array, test_size=0.25, random_state=42)
+  return x_train, x_test, y_train, y_test
 
 #REQ 7
 #essa função recebe as features de treinamento e de teste
