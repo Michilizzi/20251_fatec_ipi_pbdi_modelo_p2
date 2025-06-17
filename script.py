@@ -70,8 +70,14 @@ def obter_bases_de_treinamento_e_teste(features, classe):
 #essa função recebe as features de treinamento e de teste
 #ela deve devolver uma tupla com 2 itens, da seguinte forma
 #todas as variáveis normalizadas com o método MinMax
-def normalizar(features_treinamento, features_teste):
-  pass
+def normalizar_features(features_treinamento, features_teste):
+  scaler = StandardScaler()
+  
+  features_treinamento_scaled = scaler.fit_transform(features_treinamento)
+  
+  features_teste_scaled = scaler.transform(features_teste)
+  
+  return features_treinamento_scaled, features_teste_scaled
 
 #REQ 8
 def vai():
