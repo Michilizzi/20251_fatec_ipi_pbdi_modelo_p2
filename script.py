@@ -28,7 +28,16 @@ def dividir_em_features_e_classe(base):
 #Valores faltantes da coluna "Gastos com marketing": Substituir por zero
 #Valores faltantes da coluna "Estado": Substituir pela moda
 def lidar_com_valores_faltantes(features):
-  pass
+
+  features['Gastos com pesquisa e desenvolvimento'].fillna(features['Gastos com pesquisa e desenvolvimento'].mean(), inplace=True)
+
+  features['Gastos com administracao'].fillna(features['Gastos com administracao'].median(), inplace=True)
+
+  features['Gastos com marketing'].fillna(0, inplace=True)
+
+  features['Estado'].fillna(features['Estado'].mode()[0], inplace=True)
+  
+  return features
 
 #REQ 5
 #essa função recebe as features
